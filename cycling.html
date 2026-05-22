@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Cycling Service</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- YOUR CSS FILE -->
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ================= CYCLING HERO ================= */
+
+    .cycling-hero {
+
+      position: relative;
+
+      height: 85vh;
+
+      overflow: hidden;
+    }
+
+    .cycling-hero img {
+
+      width: 100%;
+
+      height: 100%;
+
+      object-fit: cover;
+    }
+
+    .cycling-overlay {
+
+      position: absolute;
+
+      inset: 0;
+
+      background: rgba(0, 0, 0, 0.65);
+    }
+
+    .cycling-content {
+
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      transform: translate(-50%, -50%);
+
+      text-align: center;
+
+      z-index: 5;
+
+      width: 90%;
+    }
+
+    .cycling-content h1 {
+
+      font-size: clamp(2.5rem, 6vw, 5rem);
+
+      font-weight: bold;
+
+      color: white;
+    }
+
+    .cycling-content span {
+
+      color: #e31c1c;
+    }
+
+    .cycling-content p {
+
+      color: #cccccc;
+
+      max-width: 700px;
+
+      margin: auto;
+
+      margin-top: 20px;
+
+      line-height: 1.9;
+
+      font-size: 1.1rem;
+    }
+
+    /* ================= DESCRIPTION ================= */
+
+    .cycling-description {
+
+      padding: 90px 0;
+    }
+
+    .cycling-card {
+
+      background: #111111;
+
+      border: 1px solid #2a2a2a;
+
+      border-radius: 20px;
+
+      padding: 45px;
+
+      transition: 0.3s ease;
+    }
+
+    .cycling-card:hover {
+
+      border-color: #e31c1c;
+
+      box-shadow: 0 0 30px rgba(227, 28, 28, 0.2);
+    }
+
+    .section-title {
+
+      color: #ffffff;
+
+      font-size: clamp(2rem, 4vw, 3rem);
+
+      font-weight: bold;
+
+      text-align: center;
+    }
+
+    .section-divider {
+
+      width: 65px;
+      height: 4px;
+
+      background: #e31c1c;
+
+      border-radius: 2px;
+
+      margin: 15px auto 40px;
+    }
+
+    .cycling-card p {
+
+      color: #bbbbbb;
+
+      line-height: 1.9;
+
+      margin-bottom: 20px;
+    }
+
+    /* ================= BENEFITS ================= */
+
+    .benefits-list {
+
+      list-style: none;
+
+      padding-left: 0;
+
+      margin-top: 25px;
+    }
+
+    .benefits-list li {
+
+      color: white;
+
+      margin-bottom: 18px;
+
+      font-size: 1rem;
+    }
+
+    .benefits-list i {
+
+      color: #e31c1c;
+
+      margin-right: 12px;
+    }
+
+    /* ================= TRAINING SCHEDULE ================= */
+
+    .schedule-section {
+
+      padding-bottom: 100px;
+    }
+
+    .schedule-card {
+
+      background: #111111;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      border: 1px solid #2a2a2a;
+    }
+
+    .schedule-header {
+
+      background: #e31c1c;
+
+      color: white;
+
+      text-align: center;
+
+      padding: 20px;
+
+      font-size: 1.5rem;
+
+      font-weight: bold;
+    }
+
+    .schedule-table {
+
+      width: 100%;
+
+      color: white;
+    }
+
+    .schedule-table th {
+
+      background: #1a1a1a;
+
+      padding: 18px;
+
+      border-bottom: 1px solid #333;
+    }
+
+    .schedule-table td {
+
+      padding: 18px;
+
+      border-bottom: 1px solid #222;
+
+      color: #cccccc;
+    }
+
+    .schedule-table tr:hover {
+
+      background: #1a1a1a;
+    }
+
+    /* ================= BUTTON ================= */
+
+    .join-btn {
+
+      background: #e31c1c;
+
+      color: white;
+
+      border: none;
+
+      padding: 14px 35px;
+
+      border-radius: 50px;
+
+      margin-top: 25px;
+
+      font-weight: bold;
+
+      transition: 0.3s ease;
+    }
+
+    .join-btn:hover {
+
+      background: #b51515;
+
+      transform: translateY(-3px);
+
+      box-shadow: 0 0 18px rgba(227, 28, 28, 0.5);
+    }
+
+    /* ================= RESPONSIVE ================= */
+
+    @media(max-width:768px) {
+
+      .cycling-card {
+
+        padding: 30px 20px;
+      }
+
+      .schedule-table {
+
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- ================= NAVBAR ================= -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">
+        <img src="Logo.png" alt="Logo">
+        Prime <span class="prime-red ms-1">Fitness</span>
+      </a>
+
+      <!-- Right Icons Mobile -->
+      <div class="d-flex align-items-center order-lg-3 navbar-icons">
+
+        <!-- Search -->
+        <i class="bi bi-search icon-btn" id="searchToggle"></i>
+
+        <!-- Login -->
+        <i class="bi bi-person-circle icon-btn" id="loginToggle"></i>
+
+        <!-- Hamburger -->
+        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <!-- Navbar Content -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+
+        <!-- Center Links -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+
+          <li class="nav-item" id="introBtn">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.html">Gallery</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">Contact</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- ================= SEARCH BAR ================= -->
+
+  <div class="search-container" id="searchBar">
+    <div class="container">
+      <div class="search-box">
+
+        <input type="text" class="search-input" placeholder="Search...">
+
+        <span class="close-search" id="closeSearch">
+          <i class="bi bi-x-lg"></i>
+        </span>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LOGIN MODAL ================= -->
+
+  <div class="login-overlay" id="loginOverlay">
+
+    <div class="login-card">
+
+      <span class="close-login" id="closeLogin">
+        &times;
+      </span>
+
+      <h3>Member Login</h3>
+
+      <form>
+
+        <input type="email" class="form-control" placeholder="Enter Email" required>
+
+        <input type="password" class="form-control" placeholder="Enter Password" required>
+
+        <button type="submit" class="login-btn">
+          Login
+        </button>
+
+      </form>
+      <p>
+        Don't have an account?
+        <a href="membership.html">
+          Sign Up
+        </a>
+      </p>
+
+    </div>
+  </div>
+
+  </div>
+  <!-- ================= HERO SECTION ================= -->
+
+  <section class="cycling-hero">
+
+    <img src="Indoor Cycling.png" alt="Cycling">
+
+    <div class="cycling-overlay"></div>
+
+    <div class="cycling-content">
+
+      <h1 class="animate-text">Indoor <span>Cycling</span></h1>
+
+      <p>
+        Improve endurance, burn calories, and strengthen your body
+        with our high-energy indoor cycling classes led by
+        professional trainers.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ================= DESCRIPTION SECTION ================= -->
+
+  <section class="cycling-description">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        About Cycling Program
+      </h2>
+
+      <div class="section-divider"></div>
+
+      <div class="cycling-card">
+
+        <p>
+          Our Indoor Cycling Program is designed for beginners and
+          advanced athletes who want to improve cardiovascular fitness,
+          stamina, and lower-body strength.
+        </p>
+
+        <p>
+          Members enjoy modern cycling equipment, energetic music,
+          calorie-burning sessions, and expert guidance in a motivating
+          environment.
+        </p>
+
+        <ul class="benefits-list">
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Professional Cycling Trainers
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            High Intensity Cardio Workouts
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Performance Tracking
+          </li>
+
+          <li>
+            <i class="fa-solid fa-circle-check"></i>
+            Weight Loss & Endurance Improvement
+          </li>
+
+        </ul>
+
+        <a href="membership.html">
+          <button class="join-btn">
+            Join Now
+          </button>
+
+        </a>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= TRAINING SCHEDULE ================= -->
+
+  <section class="schedule-section">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Weekly Training Schedule
+      </h2>
+
+      <div class="section-divider"></div>
+
+      <div class="schedule-card">
+
+        <div class="schedule-header">
+          Cycling Timetable
+        </div>
+
+        <table class="schedule-table">
+
+          <thead>
+
+            <tr>
+
+              <th>Day</th>
+              <th>Training</th>
+              <th>Time</th>
+              <th>Trainer</th>
+
+            </tr>
+
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>Monday</td>
+              <td>Beginner Cycling</td>
+              <td>7:00 AM - 8:30 AM</td>
+              <td>Ahmed Ali</td>
+            </tr>
+
+            <tr>
+              <td>Tuesday</td>
+              <td>Cardio Burn Ride</td>
+              <td>6:00 PM - 7:30 PM</td>
+              <td>Sarah Khan</td>
+            </tr>
+
+            <tr>
+              <td>Wednesday</td>
+              <td>HIIT Cycling</td>
+              <td>5:00 PM - 6:30 PM</td>
+              <td>Usman Tariq</td>
+            </tr>
+
+            <tr>
+              <td>Thursday</td>
+              <td>Advanced Endurance Ride</td>
+              <td>7:00 AM - 9:00 AM</td>
+              <td>Bilal Ahmed</td>
+            </tr>
+
+            <tr>
+              <td>Friday</td>
+              <td>Fat Burn Session</td>
+              <td>6:00 PM - 7:00 PM</td>
+              <td>Ayesha Noor</td>
+            </tr>
+
+            <tr>
+              <td>Saturday</td>
+              <td>Weekend Power Ride</td>
+              <td>8:00 AM - 10:00 AM</td>
+              <td>Hamza Sheikh</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </section>
+  <!-- ================= FOOTER SECTION ================= -->
+
+  <footer class="footer-section">
+
+    <div class="container">
+
+      <div class="row g-5">
+
+        <!-- ================= ABOUT US ON FOOTER ================= -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-box">
+
+            <h4>About Us</h4>
+
+            <ul>
+
+
+              <li>
+                <a href="about.html">Our Story</a>
+              </li>
+
+              <li>
+                <a href="about.html">Mission & Vision</a>
+              </li>
+
+              <li>
+                <a href="blog.html">Success Stories</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- ================= CONTACT ON FOOTER ================= -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-box">
+
+            <h4>Contact</h4>
+
+            <ul>
+
+              <li>
+                <a href="#">support@primefitness.com</a>
+              </li>
+
+              <li>
+                <a href="faq.html">FAQs</a>
+              </li>
+
+              <li>
+                <a href="#">Karachi, Pakistan</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- ================= RESOURCES ON FOOTER ================= -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-box">
+
+            <h4>Resources</h4>
+
+            <ul>
+
+              <li>
+                <a href="services.html">Workout Plans</a>
+              </li>
+
+              <li>
+                <a href="services.html">Diet & Nutrition</a>
+              </li>
+
+              <li>
+                <a href="membership.html">Membership Plans</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- ================= POLICIES ON FOOTER ================= -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-box">
+
+            <h4>Policies</h4>
+
+            <ul>
+
+              <li>
+                <a href="#">Privacy Policy</a>
+              </li>
+
+              <li>
+                <a href="#">Terms & Conditions</a>
+              </li>
+
+              <li>
+                <a href="#">Security Policy</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= FOOTER BOTTOM ================= -->
+
+      <div class="footer-bottom">
+
+        <!-- Copyright -->
+        <p>
+          © 2026 Prime Fitness. All Rights Reserved.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="social-icons">
+
+          <a href="https://www.facebook.com/PrimeFitnessPakistan/photos/">
+            <i class="bi bi-facebook"></i>
+          </a>
+
+          <a href="https://www.instagram.com/primefitnesspakistan/?hl=en">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+          <a href="https://www.youtube.com/@prime_fitness_gym79">
+            <i class="bi bi-youtube"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fitness Blog</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+ <link rel="stylesheet" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+
+      background: #0d0d0d;
+
+      font-family: Arial, sans-serif;
+
+      color: white;
+    }
+
+    /* ================= HERO SECTION ================= */
+
+    .blog-hero {
+
+      height: 60vh;
+
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop');
+
+      background-size: cover;
+
+      background-position: center;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      text-align: center;
+
+      padding: 20px;
+    }
+
+    .blog-hero h1 {
+
+      font-size: clamp(2.5rem, 6vw, 5rem);
+
+      font-weight: bold;
+    }
+
+    .blog-hero span {
+
+      color: #e31c1c;
+    }
+
+    .blog-hero p {
+
+      color: #cccccc;
+
+      max-width: 700px;
+
+      margin: auto;
+
+      margin-top: 20px;
+
+      line-height: 1.8;
+    }
+
+    /* ================= BLOG SECTION ================= */
+
+    .blog-section {
+
+      padding: 100px 0;
+    }
+
+    .section-title {
+
+      text-align: center;
+
+      font-size: clamp(2rem, 5vw, 3rem);
+
+      font-weight: bold;
+    }
+
+    .section-title span {
+
+      color: #e31c1c;
+    }
+
+    .divider {
+
+      width: 70px;
+
+      height: 4px;
+
+      background: #e31c1c;
+
+      margin: 15px auto 50px;
+
+      border-radius: 5px;
+    }
+
+    /* ================= BLOG GRID ================= */
+
+    .blog-grid {
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+      gap: 30px;
+    }
+
+    /* ================= BLOG CARD ================= */
+
+    .blog-card {
+
+      background: #111111;
+
+      border-radius: 20px;
+
+      overflow: hidden;
+
+      border: 1px solid #2a2a2a;
+
+      transition: 0.3s ease;
+    }
+
+    .blog-card:hover {
+
+      transform: translateY(-8px);
+
+      border-color: #e31c1c;
+
+      box-shadow: 0 0 25px rgba(227, 28, 28, 0.25);
+    }
+
+    .blog-card img {
+
+      width: 100%;
+
+      height: 240px;
+
+      object-fit: cover;
+    }
+
+    .blog-content {
+
+      padding: 30px;
+    }
+
+    .blog-date {
+
+      color: #e31c1c;
+
+      font-size: 0.9rem;
+
+      margin-bottom: 12px;
+    }
+
+    .blog-content h3 {
+
+      font-size: 1.6rem;
+
+      margin-bottom: 15px;
+
+      font-weight: bold;
+    }
+
+    .blog-content p {
+
+      color: #bbbbbb;
+
+      line-height: 1.8;
+
+      margin-bottom: 20px;
+    }
+
+    .read-btn {
+
+      display: inline-block;
+
+      text-decoration: none;
+
+      background: #e31c1c;
+
+      color: white;
+
+      padding: 12px 28px;
+
+      border-radius: 50px;
+
+      transition: 0.3s ease;
+
+      font-weight: bold;
+    }
+
+    .read-btn:hover {
+
+      background: #b51515;
+
+      transform: translateY(-3px);
+
+      color: white;
+    }
+
+    /* ================= NEWSLETTER ================= */
+
+    .newsletter {
+
+      background: #111111;
+
+      padding: 80px 20px;
+
+      text-align: center;
+
+      margin-top: 50px;
+    }
+
+    .newsletter h2 {
+
+      font-size: clamp(2rem, 5vw, 3rem);
+
+      margin-bottom: 20px;
+    }
+
+    .newsletter span {
+
+      color: #e31c1c;
+    }
+
+    .newsletter p {
+
+      color: #bbbbbb;
+
+      max-width: 650px;
+
+      margin: auto;
+
+      margin-bottom: 30px;
+
+      line-height: 1.8;
+    }
+
+    .newsletter form {
+
+      display: flex;
+
+      justify-content: center;
+
+      flex-wrap: wrap;
+
+      gap: 15px;
+    }
+
+    .newsletter input {
+
+      width: 350px;
+
+      max-width: 100%;
+
+      padding: 15px 20px;
+
+      border: none;
+
+      border-radius: 50px;
+
+      outline: none;
+
+      background: #1b1b1b;
+
+      color: white;
+    }
+
+    .newsletter button {
+
+      border: none;
+
+      background: #e31c1c;
+
+      color: white;
+
+      padding: 15px 35px;
+
+      border-radius: 50px;
+
+      font-weight: bold;
+
+      transition: 0.3s ease;
+    }
+
+    .newsletter button:hover {
+
+      background: #b51515;
+    }
+
+  </style>
+
+</head>
+
+<body>
+  <!-- ================= NAVBAR ================= -->
+
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">
+        <img src="Logo.png" alt="Logo">
+        Prime <span class="prime-red ms-1">Fitness</span>
+      </a>
+
+      <!-- Right Icons Mobile -->
+      <div class="d-flex align-items-center order-lg-3 navbar-icons">
+
+        <!-- Search -->
+        <i class="bi bi-search icon-btn" id="searchToggle"></i>
+
+        <!-- Login -->
+        <i class="bi bi-person-circle icon-btn" id="loginToggle"></i>
+
+        <!-- Hamburger -->
+        <button class="navbar-toggler ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+
+      <!-- Navbar Content -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+
+        <!-- Center Links -->
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link " href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li>
+
+          <li class="nav-item" id="introBtn">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="gallery.html">Gallery</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">Contact</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- ================= SEARCH BAR ================= -->
+
+  <div class="search-container" id="searchBar">
+    <div class="container">
+      <div class="search-box">
+
+        <input type="text" class="search-input" placeholder="Search...">
+
+        <span class="close-search" id="closeSearch">
+          <i class="bi bi-x-lg"></i>
+        </span>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= LOGIN MODAL ================= -->
+
+  <div class="login-overlay" id="loginOverlay">
+
+    <div class="login-card">
+
+      <span class="close-login" id="closeLogin">
+        &times;
+      </span>
+
+      <h3>Member Login</h3>
+
+      <form>
+
+        <input type="email" class="form-control" placeholder="Enter Email" required>
+
+        <input type="password" class="form-control" placeholder="Enter Password" required>
+
+        <button type="submit" class="login-btn">
+          Login
+        </button>
+
+      </form>
+      <p>
+        Don't have an account?
+        <a href="membership.html">
+          Sign Up
+        </a>
+      </p>
+
+    </div>
+  </div>
+
+  </div>
+  <!-- ================= HERO SECTION ================= -->
+
+  <section class="blog-hero">
+
+    <div>
+
+      <h1>Fitness <span>Blog</span></h1>
+
+      <p>
+        Discover expert fitness tips, workout strategies, nutrition
+        guides, and wellness advice to help you stay healthy and active.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ================= BLOG SECTION ================= -->
+
+  <section class="blog-section">
+
+    <div class="container">
+
+      <h2 class="section-title">
+        Latest <span>Articles</span>
+      </h2>
+
+      <div class="divider"></div>
+
+      <div class="blog-grid">
+
+        <!-- BLOG 1 -->
+
+        <div class="blog-card">
+
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1200&auto=format&fit=crop"
+            alt="Workout Blog">
+
+          <div class="blog-content">
+
+            <div class="blog-date">
+              <i class="fa-solid fa-calendar"></i>
+              July 15, 2026
+            </div>
+
+            <h3>
+              Best Cardio Exercises for Fat Loss
+            </h3>
+
+            <p>
+              Learn the most effective cardio workouts that help burn
+              calories, improve endurance, and support healthy weight loss.
+            </p>
+
+            <a href="#" class="read-btn">
+              Read More
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- BLOG 2 -->
+
+        <div class="blog-card">
+
+          <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=1200&auto=format&fit=crop"
+            alt="Nutrition Blog">
+
+          <div class="blog-content">
+
+            <div class="blog-date">
+              <i class="fa-solid fa-calendar"></i>
+              July 12, 2026
+            </div>
+
+            <h3>
+              Healthy Diet Tips for Muscle Gain
+            </h3>
+
+            <p>
+              Discover meal planning techniques and nutrition strategies
+              to build muscle while maintaining a balanced diet.
+            </p>
+
+            <a href="#" class="read-btn">
+              Read More
+            </a>
+
+          </div>
+
+        </div>
+
+        <!-- BLOG 3 -->
+
+        <div class="blog-card">
+
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200&auto=format&fit=crop"
+            alt="Fitness Training">
+
+          <div class="blog-content">
+
+            <div class="blog-date">
+              <i class="fa-solid fa-calendar"></i>
+              July 10, 2026
+            </div>
+
+            <h3>
+              Strength Training for Beginners
+            </h3>
+
+            <p>
+              A beginner-friendly guide to building strength safely using
+              proper form, gym routines, and recovery methods.
+            </p>
+
+            <a href="#" class="read-btn">
+              Read More
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= NEWSLETTER ================= -->
+
+  <section class="newsletter">
+
+    <h2>
+      Subscribe To Our <span>Newsletter</span>
+    </h2>
+
+    <p>
+      Get the latest fitness articles, nutrition tips, and workout
+      plans delivered directly to your inbox.
+    </p>
+
+    <form>
+
+      <input type="email" placeholder="Enter your email">
+
+      <button type="submit">
+        Subscribe
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- ================= FOOTER SECTION ================= -->
+
+  <footer class="footer-section">
+
+    <div class="container">
+
+      <div class="row g-5">
+
+        <!-- ================= ABOUT US ON FOOTER ================= -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-box">
+
+            <h4>About Us</h4>
+
+            <ul>
+
+
+              <li>
+                <a href="about.html">Our Story</a>
+              </li>
+
+              <li>
+                <a href="about.html">Mission & Vision</a>
+              </li>
+
+              <li>
+                <a href="blog.html">Success Stories</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- ================= CONTACT ON FOOTER ================= -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-box">
+
+            <h4>Contact</h4>
+
+            <ul>
+
+              <li>
+                <a href="#">support@primefitness.com</a>
+              </li>
+
+              <li>
+                <a href="faq.html">FAQs</a>
+              </li>
+
+              <li>
+                <a href="#">Karachi, Pakistan</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- ================= RESOURCES ON FOOTER ================= -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-box">
+
+            <h4>Resources</h4>
+
+            <ul>
+
+              <li>
+                <a href="services.html">Workout Plans</a>
+              </li>
+
+              <li>
+                <a href="services.html">Diet & Nutrition</a>
+              </li>
+
+              <li>
+                <a href="membership.html">Membership Plans</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        <!-- ================= POLICIES ON FOOTER ================= -->
+
+        <div class="col-lg-3 col-md-6">
+
+          <div class="footer-box">
+
+            <h4>Policies</h4>
+
+            <ul>
+
+              <li>
+                <a href="#">Privacy Policy</a>
+              </li>
+
+              <li>
+                <a href="#">Terms & Conditions</a>
+              </li>
+
+              <li>
+                <a href="#">Security Policy</a>
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- ================= FOOTER BOTTOM ================= -->
+
+      <div class="footer-bottom">
+
+        <!-- Copyright -->
+        <p>
+          © 2026 Prime Fitness. All Rights Reserved.
+        </p>
+
+        <!-- Social Icons -->
+        <div class="social-icons">
+
+          <a href="https://www.facebook.com/PrimeFitnessPakistan/photos/">
+            <i class="bi bi-facebook"></i>
+          </a>
+
+          <a href="https://www.instagram.com/primefitnesspakistan/?hl=en">
+            <i class="bi bi-instagram"></i>
+          </a>
+
+          <a href="https://www.youtube.com/@prime_fitness_gym79">
+            <i class="bi bi-youtube"></i>
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
