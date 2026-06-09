@@ -437,7 +437,27 @@
 
 
   <script src="script.js"></script>
+<script>
 
+document.getElementById("fitnessForm")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+
+    if(name.length < 3){
+        alert("Name must contain at least 3 characters");
+        return;
+    }
+
+    alert("Your enquiry has been submitted successfully!");
+
+    document.getElementById("fitnessForm").reset();
+
+});
+
+</script>
 </body>
 
 </html>
