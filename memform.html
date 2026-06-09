@@ -144,32 +144,36 @@
                 Fill out the form to join our premium membership.
             </p>
 
-            <form>
+            <form id="membershipForm">
 
                 <div class="row">
-
+                    <!-- First Name -->
                     <div class="col-md-6 mb-4">
                         <label class="form-label">First Name</label>
-                        <input type="text" class="membership-input" placeholder="Enter first name">
+                        <input type="text" class="membership-input" id="fname" placeholder="Enter first name" required
+                            minlength="3" pattern="[A-Za-z]+">
                     </div>
 
+                    <!-- Last Name -->
                     <div class="col-md-6 mb-4">
                         <label class="form-label">Last Name</label>
-                        <input type="text" class="membership-input" placeholder="Enter last name">
+                        <input type="text" class="membership-input" id="lname" placeholder="Enter last name" required
+                            minlength="3" pattern="[A-Za-z]+">
                     </div>
 
                 </div>
-
+                <!-- Email -->
                 <div class="mb-4">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" class="membership-input" placeholder="Enter email address">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="membership-input" id="email" placeholder="Enter email" required>
                 </div>
 
+                <!-- Phone -->
                 <div class="mb-4">
                     <label class="form-label">Phone Number</label>
-                    <input type="tel" class="membership-input" placeholder="Enter phone number">
+                    <input type="tel" class="membership-input" id="phone" placeholder="03XXXXXXXXX" required
+                        pattern="03[0-9]{9}">
                 </div>
-
                 <div class="mb-4">
                     <label class="form-label">Membership Plan</label>
 
@@ -180,34 +184,38 @@
                         <option>Elite Membership</option>
                     </select>
                 </div>
-
                 <div class="mb-4">
                     <label class="form-label">Address</label>
-                    <textarea rows="4" class="membership-input" placeholder="Enter your address"></textarea>
+                    <textarea rows="4" class="membership-input" placeholder="Enter your address" required></textarea>
                 </div>
-
+                <!-- Password -->
                 <div class="mb-4">
                     <label class="form-label">Password</label>
-                    <input type="password" class="membership-input" placeholder="Create password">
+                    <input type="password" class="membership-input" id="password" placeholder="Enter password" required
+                        minlength="8">
                 </div>
-                <div class="checkbox-box">
 
-                    <label>
 
-                        <input type="checkbox" required>
+                <label>
 
-                        I read and agree to the <a href="t&c.html"> Terms & Conditions</a> and the <a
-                            href="ppolicy.html">Privacy Policy</a>
+                    <input type="checkbox" required>
 
-                    </label>
+                    I read and agree to the <a href="t&c.html"> Terms & Conditions</a> and the <a
+                        href="ppolicy.html">Privacy Policy</a>
 
-                </div>
+                </label>
+
+
                 <button type="submit" class="membership-btn">
-                    JOIN MEMBERSHIP
+                    Submit
                 </button>
 
-            </form>
+                <!-- Success Message -->
+                <p id="successMsg" style="color: green; display: none;">
+                    Form Submitted Successfully!
+                </p>
 
+            </form>
         </div>
 
     </section>
